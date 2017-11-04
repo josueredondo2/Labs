@@ -1,0 +1,5 @@
+﻿Model = manejo de info Jason
+View = UI
+ViewModel = Logica de app
+
+-- Practicar creacion de INotifyPropertyChanged

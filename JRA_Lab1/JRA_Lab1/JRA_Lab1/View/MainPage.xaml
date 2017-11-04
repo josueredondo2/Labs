@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JRA_Lab1"
+             x:Class="JRA_Lab1.MainPage">
+    <StackLayout>
+        <Entry Text="{Binding Filtro}}"/>
+        <Button Text="Buscar"
+                Command="{Binding BuscarPersonaCommand}"/>
+        <!--Se crea binding a la lista observable-->
+        <ListView ItemsSource="{Binding lstPersonList}">
+            <!--Setea un template-->
+            <ListView.ItemTemplate >
+                <!--Setea un data template-->
+                <DataTemplate>
+                    <TextCell Text="{Binding Nombre}" Detail="{Binding Descripcion}"/>
+                    <!---->
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Entry Text="{Binding NuevoIngreso}"/>
+        <Button Text="Agregar Persona" 
+                Command="{Binding AgregarPersonaCommand}"/><!--Importante investigar-->
+    </StackLayout>
+</ContentPage>
