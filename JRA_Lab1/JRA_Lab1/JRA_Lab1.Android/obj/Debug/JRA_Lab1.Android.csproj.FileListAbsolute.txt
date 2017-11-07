@@ -50,3 +50,6 @@ C:\Users\estudiantes\Documents\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\andr
 C:\Users\estudiantes\Documents\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\estudiantes\Documents\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\estudiantes\Documents\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\jredondo\Documents\GitHub\Semana2\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\JRA_Lab1.Android.csprojResolveAssemblyReference.cache
+C:\Users\jredondo\Documents\GitHub\Semana2\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\JRA_Lab1.Android.dll
+C:\Users\jredondo\Documents\GitHub\Semana2\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\JRA_Lab1.Android.pdb
