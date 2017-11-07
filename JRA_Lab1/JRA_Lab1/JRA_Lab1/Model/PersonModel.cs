@@ -6,13 +6,21 @@ namespace JRA_Lab1.Model
 {
     public class PersonModel
     {
+        /// <summary>
+        /// Nombre de la persona
+        /// </summary>
         public string Nombre { get; set; }
+        /// <summary>
+        /// Apellido de la persona
+        /// </summary>
         public string Apellido { get; set; }
+        /// <summary>
+        /// Descripcion de la persona
+        /// </summary>
         public string Descripcion { get; set; }
-        public string NombreCompleto { get => Nombre +" "+Apellido;  }
-
-        public PersonModel(){}
-
-
-    }
+        /// <summary>
+        /// Nombre completo de la persona
+        /// </summary>
+        public string NombreCompleto { get => Nombre +" "+Apellido;
+        }                   }
 }

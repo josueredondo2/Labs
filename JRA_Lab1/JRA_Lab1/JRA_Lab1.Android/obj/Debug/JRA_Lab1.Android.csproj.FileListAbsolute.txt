@@ -99,3 +99,9 @@ C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\res\layout\toolbar.xml
 C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\res\values\styles.xml
 C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\R.cs.flag
 C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\uploadflags.txt
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\bin\Debug\JRA_Lab1.Android.dll.mdb
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\FormsViewGroup.dll.mdb
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\JRA_Lab1.Android.dll.mdb
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
+C:\CEN\JRA_Lab1\JRA_Lab1\JRA_Lab1.Android\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
