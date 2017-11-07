@@ -2,6 +2,6 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <SelectedDevice>Nexus 4G</SelectedDevice>
-    <DefaultDevice>Android_Accelerated_x86</DefaultDevice>
+    <DefaultDevice>AVD_for_Galaxy_Nexus</DefaultDevice>
   </PropertyGroup>
 </Project>

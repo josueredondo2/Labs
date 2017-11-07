@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "JRA_Lab1", "JRA_Lab1\JRA_Lab1\JRA_Lab1.shproj", "{CEA3C22A-47BE-4250-A6D1-8AB5AAD0DBA6}"
 EndProject
