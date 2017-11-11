@@ -13,7 +13,11 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Model\PersonModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PersonViewModelLab1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\PersonViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)View\FormatPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -29,9 +33,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)View\" />
+    <Content Include="$(MSBuildThisFileDirectory)Informacion.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Informacion.txt" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)View\FormatPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

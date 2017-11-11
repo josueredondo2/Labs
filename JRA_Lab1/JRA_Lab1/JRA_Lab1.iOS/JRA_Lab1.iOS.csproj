@@ -134,6 +134,9 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\borrar_icon.png" />
+  </ItemGroup>
   <Import Project="..\JRA_Lab1\JRA_Lab1.projitems" Label="Shared" Condition="Exists('..\JRA_Lab1\JRA_Lab1.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

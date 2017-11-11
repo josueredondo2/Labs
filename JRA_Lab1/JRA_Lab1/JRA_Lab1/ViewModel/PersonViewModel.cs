@@ -16,7 +16,7 @@ namespace JRA_Lab1.ViewModel
         /// <summary>
         /// Lista base de personas
         /// </summary>
-        private ObservableCollection<PersonModel> _lstPersonListOriginal = new ObservableCollection<PersonModel>();
+        private List<PersonModel> lstPersonListOriginal = new List<PersonModel>();
         /// <summary>
         /// Lista de personas
         /// </summary>
@@ -89,53 +89,84 @@ namespace JRA_Lab1.ViewModel
 
             }
         }
+        /////////// <summary>
+        /////////// Filtro de busqueda
+        /////////// </summary>
+        ////////private string _Filtro;
+        ////////public string Filtro
+        ////////{
+        ////////    get
+        ////////    {
+        ////////        return _Filtro;
+        ////////    }
+        ////////    set
+        ////////    {
+        ////////        _Filtro = value;
+
+        ////////        if (_lstPersonListOriginal.Count > 0)
+        ////////        {
+        ////////            if (!String.IsNullOrEmpty(_Filtro))
+        ////////                lstPersonList = new ObservableCollection<PersonModel>(_lstPersonListOriginal.Where(a => a.NombreCompleto.ToLower().Contains(_Filtro.ToLower())));
+        ////////            else
+        ////////                lstPersonList = _lstPersonListOriginal;
+        ////////        }
+
+        ////////        OnPropertyChanged("Filtro");
+
+        ////////    }
+        ////////}
+
         /// <summary>
         /// Filtro de busqueda
         /// </summary>
-        private string _Filtro;
-        public string Filtro
+        private string _TextoBuscar;
+        public string TextoBuscar
         {
             get
             {
-                return _Filtro;
+                return _TextoBuscar;
             }
             set
             {
-                _Filtro = value;
+                //                _TextoBuscar = value;
 
-                if (_lstPersonListOriginal.Count > 0)
-                {
-                    if (!String.IsNullOrEmpty(_Filtro))
-                        lstPersonList = new ObservableCollection<PersonModel>(_lstPersonListOriginal.Where(a => a.NombreCompleto.ToLower().Contains(_Filtro.ToLower())));
-                    else
-                        lstPersonList = _lstPersonListOriginal;
-                }
-
+                //                if (lstPersonListOriginal.Count > 0)
+                //                {
+                //                    if (!String.IsNullOrEmpty(_TextoBuscar))
+                //                        lstPersonList = lstPersonListOriginal.Where(a => a.NombreCompleto.ToLower().Contains(_TextoBuscar.ToLower())).ToList<PersonModel>;
+                //1                    else
+                //                        lstPersonList = lstPersonListOriginal;
+                //                }
+                _TextoBuscar = value;
+                FiltrarPersona(_TextoBuscar);
                 OnPropertyChanged("Filtro");
 
             }
         }
-        /// <summary>
-        /// Objeto persona para utilizar en la clase
-        /// </summary>
-        private PersonModel _Persona;
-        public PersonModel Persona
-        {
-            get
-            {
-                return _Persona;
-            }
-            set
-            {
-                _Persona = value;
-                OnPropertyChanged("Persona");
-            }
-        }
+
+
+        ///////// <summary>
+        ///////// Objeto persona para utilizar en la clase
+        ///////// </summary>
+        //////private PersonModel _Persona;
+        //////public PersonModel Persona
+        //////{
+        //////    get
+        //////    {
+        //////        return _Persona;
+        //////    }
+        //////    set
+        //////    {
+        //////        _Persona = value;
+        //////        OnPropertyChanged("Persona");
+        //////    }
+        //////}
         /// <summary>
         /// Interfaz de Icomandos
         /// </summary>
         public ICommand AgregarPersonaCommand { get; set; }
         public ICommand BorrarPersonaCommand { get; set; }
+
         #endregion
 
         #region Metodos
@@ -145,14 +176,14 @@ namespace JRA_Lab1.ViewModel
         private void AgregarPersona()
         {
             //Añade una persona a la lista
-            _lstPersonListOriginal.Add(new PersonModel
+            lstPersonListOriginal.Add(new PersonModel
             {
                 Nombre = NuevoIngreso,
                 Apellido = NuevoApellido,
                 Descripcion = NuevoDescripcion
             });
             //Define la lista a mostrar
-            lstPersonList = _lstPersonListOriginal;
+            lstPersonList = new ObservableCollection<PersonModel>(lstPersonListOriginal);
             //Libera las variables
             LimpiarVariables();
         }
@@ -168,16 +199,18 @@ namespace JRA_Lab1.ViewModel
         /// <summary>
         /// Elimina una persona de la lista
         /// </summary>
-        private void BorrarPersona()
+        private void BorrarPersona(int id)
         {
-            //Verifica si existe una persona
-            if (Persona != null)
-            {
-                //Elimina la persona 
-                _lstPersonListOriginal.Remove(Persona);
-                //Define la lista a mostrar
-                lstPersonList = _lstPersonListOriginal;
-            }
+            lstPersonList.Clear();
+            lstPersonListOriginal.RemoveAll(x => x.Id == id);
+            lstPersonListOriginal.ToList().ForEach(x => lstPersonList.Add(x));
+        }
+
+        private void FiltrarPersona(string textoBuscar)
+        {
+            lstPersonList.Clear();
+            lstPersonListOriginal.Where(x => x.Nombre.ToLower().Contains(textoBuscar.ToLower())).ToList().ForEach(x => lstPersonList.Add(x));
+
         }
         #endregion
 
@@ -187,32 +220,26 @@ namespace JRA_Lab1.ViewModel
         /// </summary>
         public PersonViewModel()
         {
+            InitClass();
+            InitCommands();
+        }
+        /// <summary>
+        /// Inicializa los comandos
+        /// </summary>
+        private void InitCommands()
+        {
             //Inicializa los comandos
             AgregarPersonaCommand = new Command(AgregarPersona);
-            BorrarPersonaCommand = new Command(BorrarPersona);
-            //Carga las personas de prueba
-            _lstPersonListOriginal.Add(new PersonModel
-            {
-                Nombre = "Josue",
-                Apellido = "Redondo",
-                Descripcion = "Desarrollador"
-            });
-
-            _lstPersonListOriginal.Add(new PersonModel
-            {
-                Nombre = "Cristiano",
-                Apellido = "Ronaldo",
-                Descripcion = "Real Madrid"
-            });
-
-            _lstPersonListOriginal.Add(new PersonModel
-            {
-                Nombre = "Leonel",
-                Apellido = "Messi",
-                Descripcion = "Barcelona"
-            });
+            BorrarPersonaCommand = new Command<int>(BorrarPersona);
+        }
+        /// <summary>
+        /// Inicializa las variable de la clase
+        /// </summary>
+        private void InitClass()
+        {
             //Define la lista a mostrar
-            lstPersonList = _lstPersonListOriginal;
+            lstPersonList = PersonModel.ObtenerPersonas();
+            lstPersonListOriginal = lstPersonList.ToList();
         }
         #endregion
 

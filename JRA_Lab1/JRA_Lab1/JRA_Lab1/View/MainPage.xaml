@@ -2,20 +2,43 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JRA_Lab1"
-             x:Class="JRA_Lab1.MainPage">
+             x:Class="JRA_Lab1.MainPage"
+             x:Name="MainPage">
     <StackLayout>
-        <!--Entry de filtro-->
-        <Entry Text="{Binding Filtro}}"/>       
+        <!--StackLayout de busqueda y lo acomoda de forma horizontal-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <!--Entry de filtro-->
+            <Label Text="Busqueda" 
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Blue"
+                   />
+            <Entry Text="{Binding TextoBuscar}"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Center"
+                   BackgroundColor="Red"
+                   WidthRequest="150"/>
+        </StackLayout>
         <!--Definicion de list view-->
-        <ListView ItemsSource="{Binding lstPersonList}"
-                  SelectedItem="{Binding Persona}">
+        <ListView ItemsSource="{Binding lstPersonList}" HasUnevenRows="True">
             <!--Setea un template-->
             <ListView.ItemTemplate >
                 <!--Setea un data template-->
                 <DataTemplate>
                     <!--Detalle de la celda en el dataTemplate-->
-                    <TextCell Text="{Binding NombreCompleto}" 
-                              Detail="{Binding Descripcion}"/>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding NombreCompleto}"/>
+                            <Image Source="borrar_icon.png" x:Name="imgExpand" HorizontalOptions="EndAndExpand" VerticalOptions="Start">
+                                <!--Evento tap-->
+                                <Image.GestureRecognizers>
+                                    <!--Comandos del evento tap-->
+                                    <TapGestureRecognizer Command="{Binding Path=BindingContext.BorrarPersonaCommand, Source={x:Reference MainPage}}" 
+                                                          CommandParameter="{Binding Id}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

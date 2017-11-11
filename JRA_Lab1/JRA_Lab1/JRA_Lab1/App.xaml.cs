@@ -13,7 +13,7 @@ namespace JRA_Lab1
 		{
 			InitializeComponent();
 
-			MainPage = new JRA_Lab1.MainPage();
+			MainPage = new JRA_Lab1.View.FormatPage();
 		}
 
 		protected override void OnStart ()

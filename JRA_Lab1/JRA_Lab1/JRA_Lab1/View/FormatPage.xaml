@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JRA_Lab1.View.FormatPage">
+    <StackLayout >
+        <!--Bloque 1-->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Image BackgroundColor="Blue" Source="borrar_icon.png"/>
+
+            <StackLayout BackgroundColor="Yellow" HorizontalOptions="Fill" VerticalOptions="Fill">
+                <Label Text="Nombre:Josue" HorizontalOptions="Start" VerticalOptions="Center" />
+                <Label Text="Apellido:Redondo" HorizontalOptions="Start" VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout >
+        <!--Bloque 2-->
+        <StackLayout BackgroundColor="Black" Orientation="Vertical" HorizontalOptions="FillAndExpand" HeightRequest="250">
+            <StackLayout BackgroundColor="Green" Orientation="Vertical" VerticalOptions="StartAndExpand" HeightRequest="75">
+                
+            </StackLayout>
+            <StackLayout BackgroundColor="Red" Orientation="Vertical" VerticalOptions ="EndAndExpand" HeightRequest="75">
+
+            </StackLayout>
+        </StackLayout>
+        <!--Bloque 3-->
+        <StackLayout>
+            <Button />
+        </StackLayout>
+        
+    </StackLayout>
+</ContentPage>
